@@ -21,8 +21,8 @@ class Subscriptions extends Migration
     public function up()
     {
         Schema::create('subscriptions', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedInteger('billable_id');
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('billable_id');
             $table->foreign('billable_id')->references('id')->on($this->billableTableName);
             $table->double('next_charge_amount')->default(0);
             $table->string('currency')->default('try');

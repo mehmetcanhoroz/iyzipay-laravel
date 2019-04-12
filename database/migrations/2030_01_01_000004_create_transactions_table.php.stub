@@ -9,11 +9,11 @@ class CreateTransactionsTable extends Migration
     public function up()
     {
         Schema::create('transactions', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->string('billable_id')->index();
-            $table->unsignedInteger('credit_card_id');
+            $table->unsignedBigInteger('credit_card_id');
             $table->foreign('credit_card_id')->references('id')->on('credit_cards');
-            $table->unsignedInteger('subscription_id')->nullable();
+            $table->unsignedBigInteger('subscription_id')->nullable();
             $table->foreign('subscription_id')->references('id')->on('subscriptions');
             $table->double('amount');
             $table->string('currency', 3)->default('TRY');

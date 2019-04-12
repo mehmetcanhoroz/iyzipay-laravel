@@ -21,8 +21,8 @@ class CreditCards extends Migration
     public function up()
     {
         Schema::create('credit_cards', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedInteger('billable_id');
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('billable_id');
             $table->foreign('billable_id')->references('id')->on($this->billableTableName);
             $table->string('alias', 100);
             $table->string('number', 10);

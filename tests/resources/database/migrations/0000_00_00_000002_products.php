@@ -9,7 +9,7 @@ class Products extends Migration
     public function up()
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->string('name');
             $table->double('price');
             $table->string('category');
